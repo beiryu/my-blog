@@ -32,6 +32,8 @@ update:
 	- docker-compose run php php artisan down
 	- git pull
 	- docker-compose run composer composer install
+	- docker-compose run npm run install
+	- docker-compose run npm run prod
 	- cp -f .test-server.env src/.env
 	- docker-compose run php php artisan config:cache
 	- docker-compose run php php artisan migrate
