@@ -8,3 +8,5 @@ Connect:
 
 ssh -i <private key path> beiryu@beiryu.eastus.cloudapp.azure.com</br>
 ssh -i <private key path> beiryu@52.224.13.172
+
+  END
