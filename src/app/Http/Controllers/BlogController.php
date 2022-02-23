@@ -31,8 +31,8 @@ class BlogController extends Controller
 
 
         $title = $request->input('title');
-        $postId = Post::latest()->take(1)->first()->id + 1;
-        $slug = Str::slug($title, '-') . '-' . $postId;
+        // $postId = Post::latest()->take(1)->first()->id + 1;
+        $slug = Str::slug($title, '-') . '-' . '1';
         $user_id = Auth::user()->id;
         $content = $request->input('content');
 
