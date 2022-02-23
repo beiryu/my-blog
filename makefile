@@ -36,6 +36,7 @@ update:
 	- docker-compose run npm run prod
 	- cp -f .test-server.env src/.env
 	- docker-compose run php php artisan config:cache
+	- docker-compose run php php artisan view:cache
 	- docker-compose run php php artisan migrate
 	- docker-compose run php php artisan up
 
