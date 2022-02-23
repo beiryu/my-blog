@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
+    @yield('head')
   </head>
   <body>
     <div id="wrapper">
@@ -88,8 +88,6 @@
           document.querySelector(".sidebar").style.width = "0";
         });
     </script>
-    <script>
-      CKEDITOR.replace( 'content' );
-    </script>
+    @yield('scripts')
   </body>
 </html>
