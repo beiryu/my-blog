@@ -26,11 +26,11 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 // To blog page
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 
-// To single blog post
-Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
-
 // To create blog page
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+
+// To single blog post
+Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // To store blog
 Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
