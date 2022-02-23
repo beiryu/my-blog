@@ -10,6 +10,11 @@ use Illuminate\Support\Str;
 class BlogController extends Controller
 {
     //
+    public function __construct()
+    {
+       $this->middleware('auth')->except(['index']); 
+    }
+
     public function index ()
     {
         $posts = Post::latest()->get();
@@ -19,6 +24,42 @@ class BlogController extends Controller
     public function create ()
     {
         return view('blogPosts.create-blog-post');
+    }
+
+    public function edit (Post $post)
+    {
+        if (auth()->user()->id !== $post->user->id)
+        {
+            abort(403);
+        }
+        return view('blogPosts.edit-blog-post', compact('post'));
+    }
+
+    public function update (Request $request, Post $post)
+    {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'required | image',
+            'content' => 'required'
+        ]);
+
+
+        $title = $request->input('title');
+        $slug = Str::slug($title, '-') . '-' . $post->id;
+        $content = $request->input('content');
+
+        // file upload
+        $imgPath = 'storage/' . $request->file('image')->store('postsImages', 'public');
+
+        $post->title = $title;
+        $post->slug = $slug;
+        $post->content = $content;
+        $post->imgPath = $imgPath;
+
+        $post->save();
+
+        return redirect()->back()->with('status', 'Post Edited Successfully');
+
     }
 
     public function store (Request $request)
