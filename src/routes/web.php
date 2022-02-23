@@ -32,6 +32,8 @@ Route::get('/blog/single-blog-post', [BlogController::class, 'show'])->name('blo
 // To create blog page
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
 
+// To store blog
+Route::post('/blog', [BlogController::class, 'store'])->name('blog.store');
 
 // To about page
 Route::get('/about', function() {

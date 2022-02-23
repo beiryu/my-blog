@@ -13,18 +13,26 @@
             </h1>
 
             <div class="contact-form">
-                <form action="" method="">
+                <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
+                  @csrf
                   <!-- Title -->
                   <label for="title"><span>Title</span></label>
-                  <input type="text" id="title" name="title" />
-        
+                  <input type="text" id="title" name="title" value="{{ old('title') }}"/>
+                  @error('title')
+                    <p style="color: red; margin-bottom: 25px; ">{{ $message }}</p>
+                  @enderror
                   <!-- Image -->
                   <label for="image"><span>Image</span></label>
                   <input type="file" id="image" name="image" />
-        
+                  @error('image')
+                    <p style="color: red; margin-bottom: 25px; ">{{ $message }}</p>
+                  @enderror
                   <!-- Content -->
                   <label for="content"><span>Content</span></label>
-                    <textarea name="content" id="content"></textarea>
+                  <textarea name="content" id="content">{{ old('content') }}</textarea>
+                  @error('content')
+                    <p style="color: red; margin-bottom: 25px; ">{{ $message }}</p>
+                  @enderror
                    <!-- Button -->
                   <input type="submit" value="Submit" />
                 </form>
