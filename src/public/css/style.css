@@ -433,6 +433,18 @@ textarea {
   transform: translateY(-4px);
 }
 
+/* Dashboard */
+.dashboard {
+  margin-top: 30px;
+}
+
+.dashboard a {
+  all: revert;
+  font-size: 26px;
+  display: block;
+  margin: 2px 0;
+}
+
 /* Medium devices and below */
 
 @media (max-width: 768px) {
@@ -507,4 +519,6 @@ textarea {
   .categories ul li:nth-of-type(4) {
     margin-bottom: 25px;
   }
+
+  
 }

@@ -12,6 +12,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
+    <script src="https://cdn.ckeditor.com/4.17.2/standard/ckeditor.js"></script>
   </head>
   <body>
     <div id="wrapper">
@@ -34,6 +35,10 @@
             <li><a class="{{ Request::routeIs('register') ? 'active' : '' }}" href="{{ route('register') }}">Register</a></li>
 
             @endguest
+            @auth
+            <li><a class="{{ Request::routeIs('dashboard') ? 'active' : '' }}" href="{{ route('register') }}">Dashboard</a></li>
+                
+            @endauth
           </ul>
         </div>
 
@@ -82,6 +87,9 @@
         .addEventListener("click", function () {
           document.querySelector(".sidebar").style.width = "0";
         });
+    </script>
+    <script>
+      CKEDITOR.replace( 'content' );
     </script>
   </body>
 </html>
