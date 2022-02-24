@@ -28,6 +28,20 @@
                   @error('image')
                     <p style="color: red; margin-bottom: 25px; ">{{ $message }}</p>
                   @enderror
+
+                  <!-- Drop down -->
+                  <label for="categories"><span>Choose a category:</span></label>
+                  <select name="category_id" id="categories">
+                      <option selected disabled>Select option </option>
+                      @foreach ($categories as $category)
+                          <option value="{{ $category->id }}">{{ $category->name }}</option>
+                      @endforeach
+                  </select>
+                  @error('category_id')
+                      {{-- The $attributeValue field is/must be $validationRule --}}
+                      <p style="color: red; margin-bottom:25px;">{{ $message }}</p>
+                  @enderror
+
                   <!-- Content -->
                   <label for="content"><span>Content</span></label>
                   <textarea name="content" id="content">{{ old('content') }}</textarea>
