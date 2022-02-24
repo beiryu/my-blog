@@ -37,6 +37,11 @@ class BlogController extends Controller
 
     public function update (Request $request, Post $post)
     {
+        if (auth()->user()->id !== $post->user->id)
+        {
+            abort(403);
+        }
+
         $request->validate([
             'title' => 'required',
             'image' => 'required | image',
@@ -95,5 +100,13 @@ class BlogController extends Controller
     public function show (Post $post)
     {
         return view('blogPosts.single-blog-post', compact('post'));
+    }
+
+    public function delete (Post $post)
+    {
+        $post->delete();
+
+        return redirect()->back()->with('status', 'Post Delete Successfully');
+
     }
 }
