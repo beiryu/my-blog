@@ -12,12 +12,18 @@ class BlogController extends Controller
     //
     public function __construct()
     {
-       $this->middleware('auth')->except(['index']); 
+       $this->middleware('auth')->except(['index', 'show']); 
     }
 
-    public function index ()
+    public function index (Request $request)
     {
-        $posts = Post::latest()->get();
+        if ($request->search) {
+            $posts = Post::where('title', 'like', '%' . $request->search . '%')->orWhere('content', 'like', '%' . $request->search . '%')->latest()->paginate(4);
+        }
+        else {
+            $posts = Post::latest()->paginate(4);
+        }
+
         return view('blogPosts.blog', compact('posts'));
     }
 
@@ -102,7 +108,7 @@ class BlogController extends Controller
         return view('blogPosts.single-blog-post', compact('post'));
     }
 
-    public function delete (Post $post)
+    public function destroy (Post $post)
     {
         $post->delete();
 

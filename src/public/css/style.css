@@ -251,17 +251,20 @@ footer small {
 
 /* Pagination */
 
-​.pagination {
+/* ​.pagination {
   display: inline-block;
-}
+
+} */
 
 #pagination {
   margin: 3rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pagination a {
   color: white;
-  float: left;
   padding: 6px 16px;
   text-decoration: none;
 }

@@ -28,44 +28,37 @@
     </ul>
   </div>
   <section class="cards-blog latest-blog">
-    
-
-    @foreach ($posts as $post)
-      <div class="card-blog-content">
-        @auth
-            @if (auth()->user()->id === $post->user->id)
-            <div class="post-buttons">
-              <a href="{{ route('blog.edit', $post) }}">Edit</a>
-              <form action="{{ route('blog.delete', $post) }}" method="post">
-                @csrf
-                @method('delete')
-                <input type="submit" name="" id="" value="Delete">
-              </form>
-            </div>
-            @endif
-        @endauth
-        <img src="{{ asset($post->imgPath) }}" alt="" />
-        <p>
-          {{ $post->created_at->diffForHumans() }}
-          <span>Written By {{ $post->user->name }}</span>
-        </p>
-        <h4>
-          <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>
-        </h4>
-      </div>
-    @endforeach
-
-    <!-- pagination -->
-    <div class="pagination" id="pagination">
-      <a href="">&laquo;</a>
-      <a class="active" href="">1</a>
-      <a href="">2</a>
-      <a href="">3</a>
-      <a href="">4</a>
-      <a href="">5</a>
-      <a href="">&raquo;</a>
+    @forelse ($posts as $post)
+    <div class="card-blog-content">
+      @auth
+          @if (auth()->user()->id === $post->user->id)
+          <div class="post-buttons">
+            <a href="{{ route('blog.edit', $post) }}">Edit</a>
+            <form action="{{ route('blog.destroy', $post) }}" method="post">
+              @csrf
+              @method('delete')
+              <input type="submit" name="" id="" value="Delete">
+            </form>
+          </div>
+          @endif
+      @endauth
+      <img src="{{ asset($post->imgPath) }}" alt="" />
+      <p>
+        {{ $post->created_at->diffForHumans() }}
+        <span>Written By {{ $post->user->name }}</span>
+      </p>
+      <h4>
+        <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>
+      </h4>
     </div>
+    @empty
+        <p>Sorry, currently there is no blog post related to that search!</p>
+    @endforelse
+
   </section>
 
+  {{ $posts->links('pagination::default') }}
+  
 </main>
+
 @endsection
