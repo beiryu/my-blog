@@ -41,8 +41,17 @@
       @endauth
       <img src="{{ asset($post->imgPath) }}" alt="" />
       <p>
-        {{ $post->created_at->diffForHumans() }}
-        <span>Written By {{ $post->user->name }}</span>
+        <span>
+          <i class="fas fa-clock"></i>
+          {{ $post->created_at->diffForHumans() }}
+        </span>
+        
+
+        <span>
+          <i class="fas fa-user"></i>
+          Written By {{ $post->user->name }}
+        </span>
+
       </p>
       <h4>
         <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>

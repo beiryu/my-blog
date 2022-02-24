@@ -8,8 +8,16 @@
     <h1>{{ $post->title }}</h1>
 
     <p class="time-and-author">
-      {{ $post->created_at->diffForHumans() }}
-      <span>Written By {{ $post->user->name }}</span>
+      <span>
+        <i class="fas fa-clock"></i>
+        {{ $post->created_at->diffForHumans() }}
+      </span>
+      <span>
+        <i class="fas fa-user"></i>
+
+        Written By {{ $post->user->name }}
+      </span>
+      
     </p>
 
     <div class="single-blog-post-ContentImage" data-aos="fade-left">

@@ -4,7 +4,7 @@
     <!-- header -->
     <header class="header" style="  background-image: url({{ asset('images/photography.jpg') }});">
       <div class="header-text">
-        <h1>Alphayo Blog</h1>
+        <h1>Beiryu Blog</h1>
         <h4>Dashboard of verified news...</h4>
       </div>
       <div class="overlay"></div>
@@ -23,8 +23,17 @@
           <img src="{{ asset($post->imgPath) }}" alt="" />
           <p>
             
-            {{ $post->created_at->diffForHumans() }}
-            <span style="float: right">Written By {{ $post->user->name }}</span>
+            <span>
+              <i class="fas fa-clock"></i>
+              {{ $post->created_at->diffForHumans() }}
+            </span>
+            
+    
+            <span>
+              <i class="fas fa-user"></i>
+              Written By {{ $post->user->name }}
+            </span>
+    
           </p>
           <h4 style="font-weight: bolder">
             <a href="{{ route('blog.show', $post) }}">{{ $post->title }}</a>

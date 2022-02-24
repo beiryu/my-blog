@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Alphayo Blog</title>
+    <title>Home - Beiryu Blog</title>
+
+    <link rel = "icon" href="{{ asset('images/logo.png') }}"
+        type = "image/x-icon">
     <!-- Css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <!-- Font awesome -->
@@ -22,7 +25,7 @@
       <!-- sidebar -->
       <div class="sidebar">
         <span class="closeButton">&times;</span>
-        <p class="brand-title"><a href="">Alphayo Blog</a></p>
+        <p class="brand-title"><a href="">Beiryu Blog</a></p>
 
         <div class="side-links">
           <ul>
@@ -45,12 +48,17 @@
         <!-- sidebar footer -->
         <footer class="sidebar-footer">
           <div>
-            <a href=""><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.facebook.com/khanhjj.dinh/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://github.com/beiryu"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/channel/UC55YrvKk2yQ3w5HYZ8w-VZA"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/in/khanh-ndinh/"><i class="fab fa-linkedin-in"></i></a>
             <a href=""><i class="fab fa-instagram"></i></a>
             <a href=""><i class="fab fa-twitter"></i></a>
+            
+            {{-- font toi font sang --}}
           </div>
 
-          <small>&copy 2021 Alphayo Blog</small>
+          <small>&copy 2022 BEIRYUBLOG</small>
         </footer>
       </div>
       <!-- Menu Button -->
@@ -69,7 +77,7 @@
           <a href=""><i class="fab fa-instagram"></i></a>
           <a href=""><i class="fab fa-twitter"></i></a>
         </div>
-        <small>&copy 2021 Alphayo Blog</small>
+        <small>&copy 2022 BEIRYUBLOG</small>
       </footer>
     </div>
 

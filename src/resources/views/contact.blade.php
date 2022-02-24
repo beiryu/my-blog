@@ -14,11 +14,11 @@
                 <div class="specific-info">
                     <i class="fas fa-home"></i>
                     <div>
-                        <p class="title">4th floor, Hi Center</p>
-                        <p class="subtitle">Moi Avenue</p>
+                        <p class="title">KTX Khu B, Thu Duc</p>
+                        <p class="subtitle">Ho Chi Minh</p>
                     </div>
                 </div>
-                <div class="specific-info">
+                {{-- <div class="specific-info">
                     <i class="fas fa-phone-alt"></i>
                     <div>
                         <a href="">+254 720 XXX XXX </a>
@@ -27,14 +27,14 @@
 
                         <p class="subtitle">Mon to Fri 9am-6pm</p>
                     </div>
-                </div>
+                </div> --}}
                 <div class="specific-info">
                     <i class="fas fa-envelope-open-text"></i>
                     <div>
-                        <a href="mailto:info@alphayo.co.ke">
-                            <p class="title">info@alphayo.co.ke</p>
+                        <a href="mailto:dinhnguyenkhanh210401@gmail.com">
+                            <p class="title">dinhnguyenkhanh210401@gmail.com</p>
                         </a>
-                        <p class="subtitle">Send us your query anytime!</p>
+                        <p class="subtitle">Send me your query anytime!</p>
                     </div>
                 </div>
             </div>
