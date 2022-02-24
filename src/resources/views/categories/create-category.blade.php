@@ -11,11 +11,8 @@
             <h1 style="padding-top: 5px; ">
                 Create New Category
             </h1>
-            @if (session('status'))
-                <p style="color: #fff; width: 100%; font-size: 18px; font-weight: 600; text-align: center; background-color: #5cb85c; padding: 17px 0; margin-bottom: 6px">
-                  {{ session('status') }}
-                </p>
-            @endif
+            @include('includes.flash-message')
+
             <div class="contact-form">
                 <form action="{{ route('categories.store') }}" method="post">
                   @csrf
