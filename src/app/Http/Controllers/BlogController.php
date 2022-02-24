@@ -88,7 +88,7 @@ class BlogController extends Controller
 
         $title = $request->input('title');
         $category_id = $request->input('category_id');
-        if (Post::latest()->first()->id !== null) {
+        if (Post::latest()->first() !== null) {
             $postId = Post::latest()->first()->id + 1;
         }
         else {
