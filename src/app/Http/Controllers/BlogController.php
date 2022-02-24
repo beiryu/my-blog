@@ -94,7 +94,6 @@ class BlogController extends Controller
         else {
             $postId = 1;
         }
-        $postId = Post::latest()->take(1)->first()->id + 1;
         $slug = Str::slug($title, '-') . '-' . $postId;
         $user_id = Auth::user()->id;
         $content = $request->input('content');
