@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Artisan;
@@ -52,6 +53,9 @@ Route::get('/about', function() {
 
 // To contact page
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+// Category resource controller
+Route::resource('/categories', CategoryController::class);
 
 
 Route::get('/dashboard', function () {

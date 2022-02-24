@@ -18,8 +18,8 @@
                         <ul>
                             <li>
                                 <a href="{{ route('blog.create') }}">Create Post</a>
-                                <a href="">Create Category</a>
-                                <a href="">Categories List</a>
+                                <a href="{{ route('categories.create') }}">Create Category</a>
+                                <a href="{{ route('categories.index') }}">Categories List</a>
                             </li>
                         </ul>
                     </div>

@@ -38,7 +38,7 @@ class BlogController extends Controller
         {
             abort(403);
         }
-        return view('blogPosts.edit-blog-post', compact('post'));
+        return view('blogPosts.edit-blog-post', compact('post'));   
     }
 
     public function update (Request $request, Post $post)
