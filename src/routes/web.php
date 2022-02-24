@@ -57,6 +57,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.index
 // Category resource controller
 Route::resource('/categories', CategoryController::class);
 
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
