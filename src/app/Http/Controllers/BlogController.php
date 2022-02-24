@@ -21,6 +21,9 @@ class BlogController extends Controller
         if ($request->search) {
             $posts = Post::where('title', 'like', '%' . $request->search . '%')->orWhere('content', 'like', '%' . $request->search . '%')->latest()->paginate(4);
         }
+        elseif ($request->category) {
+            $posts = Category::where('name', $request->category)->firstOrFail()->posts()->paginate(4)->withQueryString();
+        }
         else {
             $posts = Post::latest()->paginate(4);
         }
@@ -116,7 +119,10 @@ class BlogController extends Controller
 
     public function show (Post $post)
     {
-        return view('blogPosts.single-blog-post', compact('post'));
+        $category = $post->category;
+
+        $relatedPosts = $category->posts()->where('id', '!=', $post->id)->latest()->take(3)->get();
+        return view('blogPosts.single-blog-post', compact('post', 'relatedPosts'));
     }
 
     public function destroy (Post $post)
