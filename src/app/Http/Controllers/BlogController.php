@@ -126,7 +126,7 @@ class BlogController extends Controller
 
         $post->save();
 
-        return redirect()->back()->with('status', );
+        return redirect()->back()->with('status', $message);
     }
 
     public function show (Post $post)
