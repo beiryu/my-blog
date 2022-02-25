@@ -5,7 +5,13 @@
     <header class="header" style="  background-image: url({{ asset('images/photography.jpg') }});">
       <div class="header-text">
         <h1>Beiryu Blog</h1>
-        <h4>Dashboard of verified news...</h4>
+        
+        <h4>
+          <a href="http://beiryu.me">Blog</a> của 
+          <a href="https://www.facebook.com/khanhjj.dinh/">Khánh</a>. Học 
+          <a href="https://en.wikipedia.org/wiki/Computer_science">Computer Science</a> tại 
+          <a href="https://www.hcmus.edu.vn/">Khoa học Tự Nhiên</a>
+        </h4>
       </div>
       <div class="overlay"></div>
     </header>

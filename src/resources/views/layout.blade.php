@@ -25,7 +25,7 @@
       <!-- sidebar -->
       <div class="sidebar">
         <span class="closeButton">&times;</span>
-        <p class="brand-title"><a href="">Beiryu Blog</a></p>
+        <p class="brand-title"><a href="{{ url('/') }}">Beiryu Blog</a></p>
 
         <div class="side-links">
           <ul>
