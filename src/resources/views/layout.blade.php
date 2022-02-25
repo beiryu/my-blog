@@ -39,7 +39,7 @@
 
             @endguest
             @auth
-            <li><a class="{{ Request::routeIs('dashboard') ? 'active' : '' }}" href="{{ route('register') }}">Dashboard</a></li>
+            <li><a class="{{ Request::routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">Dashboard</a></li>
                 
             @endauth
           </ul>

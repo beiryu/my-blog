@@ -3,6 +3,8 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -54,13 +56,15 @@ Route::get('/about', function() {
 // To contact page
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
 
-// Category resource controller
-Route::resource('/categories', CategoryController::class);
-
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [RoleController::class, 'index'])->middleware(['auth', 'role:admin,user'])->name('dashboard');
+
+// To user and category resource controller
+Route::middleware(['auth'])->group(function () {
+    
+    Route::resource('/categories', CategoryController::class);
+    Route::resource('/users', UserController::class);
+});
 
 require __DIR__.'/auth.php';
