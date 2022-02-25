@@ -18,6 +18,7 @@
                         <ul>
                             <li>
                                 <a href="{{ route('blog.create') }}">Create Post</a>
+                                <a href="{{ route('blog.my-posts') }}">My Posts</a>
                             </li>
                         </ul>
                     </div>
