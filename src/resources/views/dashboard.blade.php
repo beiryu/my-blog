@@ -22,6 +22,7 @@
                                 <a href="{{ route('categories.index') }}">Categories List</a>
                                 <a href="{{ route('users.index') }}">Users List</a>
                                 <a href="{{ route('blog.pending') }}">Pending Posts</a>
+                                <a href="{{ route('blog.my-posts') }}">My Posts</a>
                             </li>
                         </ul>
                     </div>

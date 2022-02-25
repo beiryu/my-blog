@@ -32,6 +32,13 @@ class BlogController extends Controller
         return view('blogPosts.blog', compact('posts', 'categories'));
     }
 
+    public function myPosts (Request $request)
+    {
+        $userId = auth()->user()->id;
+        $posts = Post::where('user_id', '=', $userId)->get();
+        return view('blogPosts.my-posts', compact('posts'));
+    }
+
     public function pending () {
 
         $pendingPosts = PendingPost::all();
@@ -146,7 +153,7 @@ class BlogController extends Controller
     {
         $post->delete();
 
-        return redirect()->back()->with('status', 'Post Delete Successfully');
+        return redirect()->back()->with('status', 'Post Deleted Successfully');
 
     }
     public function approve($id) 

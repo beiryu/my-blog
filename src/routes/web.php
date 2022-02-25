@@ -30,6 +30,10 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome.index');
 // To blog page
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 
+
+
+// To my post manage page
+Route::get('/blog/my-posts', [BlogController::class, 'myPosts'])->name('blog.my-posts');
 // To create blog page
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
 
