@@ -98,10 +98,13 @@ class BlogController extends Controller
         if (auth()->user()->role !== 'admin') {
             $post = new PendingPost();
             $postId = (PendingPost::latest()->first() !== null) ? PendingPost::latest()->first()->id + 1 : 1;
+            $message = 'Post Waiting To Be Approved';
         }
         else {
             $post = new Post();
             $postId = (Post::latest()->first() !== null) ? Post::latest()->first()->id + 1 : 1;
+            $message = 'Post Created Successfully';
+
         }
 
         $title = $request->input('title');
@@ -123,7 +126,7 @@ class BlogController extends Controller
 
         $post->save();
 
-        return redirect()->back()->with('status', 'Post Created Successfully');
+        return redirect()->back()->with('status', );
     }
 
     public function show (Post $post)
