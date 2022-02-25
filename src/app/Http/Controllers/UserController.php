@@ -60,7 +60,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        $roles = User::select('role')->distinct()->get();
+        // $roles = User::select('role')->distinct()->get();
+        $roles = ['user', 'admin'];
         return view('users.edit-user', compact('user', 'roles'));   
 
     }

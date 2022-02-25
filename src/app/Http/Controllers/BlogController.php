@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\PendingPost;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,12 @@ class BlogController extends Controller
         return view('blogPosts.blog', compact('posts', 'categories'));
     }
 
+    public function pending () {
+
+        $pendingPosts = PendingPost::all();
+        return view('blogPosts.pending-blog-post', compact('pendingPosts'));
+
+    }
     public function create ()
     {
         $categories = Category::all();
@@ -88,15 +95,17 @@ class BlogController extends Controller
             'category_id' => 'required'
         ]);
 
+        if (auth()->user()->role !== 'admin') {
+            $post = new PendingPost();
+            $postId = (PendingPost::latest()->first() !== null) ? PendingPost::latest()->first()->id + 1 : 1;
+        }
+        else {
+            $post = new Post();
+            $postId = (Post::latest()->first() !== null) ? Post::latest()->first()->id + 1 : 1;
+        }
 
         $title = $request->input('title');
         $category_id = $request->input('category_id');
-        if (Post::latest()->first() !== null) {
-            $postId = Post::latest()->first()->id + 1;
-        }
-        else {
-            $postId = 1;
-        }
         $slug = Str::slug($title, '-') . '-' . $postId;
         $user_id = Auth::user()->id;
         $content = $request->input('content');
@@ -104,7 +113,7 @@ class BlogController extends Controller
         // file upload
         $imgPath = 'storage/' . $request->file('image')->store('postsImages', 'public');
 
-        $post = new Post();
+        // save
         $post->title = $title;
         $post->category_id = $category_id;
         $post->slug = $slug;
@@ -122,14 +131,36 @@ class BlogController extends Controller
         $category = $post->category;
 
         $relatedPosts = $category->posts()->where('id', '!=', $post->id)->latest()->take(3)->get();
+        
         return view('blogPosts.single-blog-post', compact('post', 'relatedPosts'));
     }
-
+    public function showPendingPost (PendingPost $post)
+    {
+        $relatedPosts = null;
+        return view('blogPosts.single-blog-post', compact('post', 'relatedPosts'));
+    }
     public function destroy (Post $post)
     {
         $post->delete();
 
         return redirect()->back()->with('status', 'Post Delete Successfully');
 
+    }
+    public function approve($id) 
+    {
+        $pendingPost = PendingPost::where('id', $id)->first();
+        $post = new Post();
+        $post->title = $pendingPost->title;
+        $post->category_id = $pendingPost->category_id;
+        $postId = (Post::latest()->first() !== null) ? Post::latest()->first()->id + 1 : 1;
+        $post->slug = Str::slug($pendingPost->title, '-') . '-' . $postId;
+        $post->user_id = $pendingPost->user_id;
+        $post->content = $pendingPost->content;
+        $post->imgPath = $pendingPost->imgPath;
+        $post->save();
+
+        $pendingPost->delete();
+
+        return redirect()->back()->with('status', 'Post Approved Successfully');
     }
 }

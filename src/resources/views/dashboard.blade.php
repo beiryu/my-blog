@@ -21,7 +21,7 @@
                                 <a href="{{ route('categories.create') }}">Create Category</a>
                                 <a href="{{ route('categories.index') }}">Categories List</a>
                                 <a href="{{ route('users.index') }}">Users List</a>
-
+                                <a href="{{ route('blog.pending') }}">Pending Posts</a>
                             </li>
                         </ul>
                     </div>

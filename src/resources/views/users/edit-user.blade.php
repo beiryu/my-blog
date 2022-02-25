@@ -26,7 +26,7 @@
                     <select name="role" id="role">
                         <option selected disabled>Select option </option>
                         @foreach ($roles as $role)
-                            <option value="{{ $role->role }}">{{ $role->role }}</option>
+                            <option value="{{ $role }}">{{ $role }}</option>
                         @endforeach
                     </select>
 

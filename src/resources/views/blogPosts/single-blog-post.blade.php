@@ -28,9 +28,11 @@
       {!! $post->content !!}
     </div>
   </section>
+  @if ($relatedPosts !== null)
   <section class="recommended">
     <p>Related</p>
     <div class="recommended-cards">
+     
       @foreach ($relatedPosts as $post)
       <a href="{{ route('blog.show', $post) }}">
         <div class="recommended-card">
@@ -42,8 +44,11 @@
       </a>   
       @endforeach
       
+      
     </div>
   </section>
+  @endif
+
 </main>
     
 @endsection
