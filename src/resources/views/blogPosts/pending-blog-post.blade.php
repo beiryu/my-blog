@@ -30,7 +30,7 @@
 
       </p>
       <h4>
-        <a href="{{ route('blog.show-pending-post', $post) }}">{{ $post->title }}</a>
+        <a href="{{ route('blog.show', [$post, 'status' => 'pending']) }}">{{ $post->title }}</a>
       </h4>
     </div>
     @empty

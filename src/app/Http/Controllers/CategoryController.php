@@ -14,7 +14,6 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
         $categories = Category::all();
         return view('categories.index-categories', compact('categories'));
     }
@@ -38,15 +37,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // if (auth()->user()->id !== $post->user->id)
-        // {
-        //     abort(403);
-        // }
-
         $request->validate([
             'name' => 'required | unique:categories'
         ]);
-
 
         $name = $request->input('name');
         $category = new Category();
@@ -90,15 +83,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        // if (auth()->user()->id !== $post->user->id)
-        // {
-        //     abort(403);
-        // }
-
         $request->validate([
             'name' => 'required | unique:categories'
         ]);
-
 
         $name = $request->input('name');
         $category->name = $name;

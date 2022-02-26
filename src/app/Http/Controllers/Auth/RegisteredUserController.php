@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\AppConst;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -39,12 +40,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        if ($request->email === 'dinhnguyenkhanh210401@gmail.com') {
-            $role = 'admin';
-        }
-        else {
-            $role = 'user';
-        }
+        $role = ($request->email === AppConst::MY_MAIL) ? 'admin' : 'user';
         
         $user = User::create([
             'name' => $request->name,
