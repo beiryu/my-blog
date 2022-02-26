@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Contact;
+use App\Models\AppConst;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    //
     public function index ()
     {
         return view('contact');
@@ -23,7 +23,7 @@ class ContactController extends Controller
             'message' => 'required',
         ]);
 
-        Mail::to('dinhnguyenkhanh210401@gmail.com')->send(new Contact($data));
+        Mail::to(AppConst::MY_MAIL)->send(new Contact($data));
 
         return redirect(route('contact.index'))->with('status', "Thank you, I'll be in touch soon");
     }

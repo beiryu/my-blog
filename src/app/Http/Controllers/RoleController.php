@@ -6,13 +6,8 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
-    //
     public function index ()
     {
-        if (auth()->user()->role === 'admin')
-        {
-            return view('dashboard');
-        }
-        return view('profile');
+        return (auth()->user()->role === 'admin') ? view('dashboard') : view('profile');
     }
 }

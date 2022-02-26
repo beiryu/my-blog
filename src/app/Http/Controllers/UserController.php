@@ -59,11 +59,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
-        // $roles = User::select('role')->distinct()->get();
         $roles = ['user', 'admin'];
         return view('users.edit-user', compact('user', 'roles'));   
-
     }
 
     /**
@@ -75,7 +72,6 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
         $request->validate([
             'name' => 'required',
             'role' => 'required',
@@ -101,9 +97,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
         // $user->delete();
         // return redirect()->back()->with('status', 'User Deleted Successfully');
-
     }
 }

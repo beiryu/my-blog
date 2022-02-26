@@ -17,8 +17,7 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, ...$roles)
     {
         $userRole = auth()->user()->role;
-        if (!in_array($userRole, $roles))
-        {
+        if (!in_array($userRole, $roles)) {
             abort(401);
         }
         return $next($request);
