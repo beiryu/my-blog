@@ -25,6 +25,12 @@
       <!-- sidebar -->
       <div class="sidebar">
         <span class="closeButton">&times;</span>
+        <a href="{{ url('/') }}">
+          <img src="{{ asset('images/logo-3.png') }}" alt="" style="width: 50%; display: block;
+          margin: 40px auto 0px auto;
+          ">
+
+        </a>
         <p class="brand-title"><a href="{{ url('/') }}">Beiryu Blog</a></p>
 
         <div class="side-links">
