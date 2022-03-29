@@ -10,7 +10,9 @@
                 <p>{{ $user->name }}</p>
                 <p>{{ $user->role }}</p>
                 <div>
-                    <a href="{{ route('users.edit', $user) }}">Edit</a>
+                    @if ($user->email !== 'dinhnguyenkhanh210401@gmail.com')
+                        <a href="{{ route('users.edit', $user) }}">Edit</a>
+                    @endif
                 </div>
                 {{-- <form action="{{route('users.destroy', $user)}}" method="post">
                     @method('delete')
