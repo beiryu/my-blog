@@ -1,4 +1,4 @@
-# my-blog
+# Laravel Blog
 
 Domain: http://beiryu.me/
 
