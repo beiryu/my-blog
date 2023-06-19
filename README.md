@@ -1,9 +1,5 @@
 # Laravel Blog
 
-Domain: http://beiryu.me/
+- Domain: http://beiryu.me/
+- Ip: http://52.224.13.172/
 
-Ip address: http://52.224.13.172/
-
-Connect: 
-
-ssh beiryu@52.224.13.172
