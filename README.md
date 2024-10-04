@@ -97,6 +97,8 @@ This project includes a Docker configuration for easy development and deployment
 
 For more details on the Docker setup, refer to the `docker-compose.yml` file
 
+## Deployment Structure
+![ci-cd-gitops-github-actions-aks-push](https://github.com/user-attachments/assets/90cede00-f171-46bc-8725-1710ca4708d0)
 
 ## Contributing
 
